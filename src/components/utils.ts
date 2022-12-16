@@ -1,29 +1,28 @@
 import styled from "styled-components";
 
 export interface CustomTextProps {
-    readonly color?: string;
-    readonly margin?: number | string;
-    readonly padding?: number;
-    readonly title?: boolean;
-    readonly subheading?: boolean;
-    readonly large?: boolean;
-    readonly medium?: boolean;
-    readonly small?: boolean;
-    readonly tiny?: boolean;
-    readonly extraTiny?: boolean;
-    readonly light?: boolean;
-    readonly heavy?: boolean;
-    readonly bold?: boolean;
-    readonly black?: boolean;
-    readonly center?: boolean;
-    readonly right?: boolean;
-  }
+  readonly color?: string;
+  readonly margin?: number | string;
+  readonly padding?: number;
+  readonly title?: boolean;
+  readonly subheading?: boolean;
+  readonly large?: boolean;
+  readonly medium?: boolean;
+  readonly small?: boolean;
+  readonly tiny?: boolean;
+  readonly extraTiny?: boolean;
+  readonly light?: boolean;
+  readonly heavy?: boolean;
+  readonly bold?: boolean;
+  readonly center?: boolean;
+  readonly right?: boolean;
+}
 
-  export const Text = styled.p<CustomTextProps>`
-  color: ${({ color }) => color ?? '#dbdbdb'};
-  font-family: 'Montserrat';
-  margin: ${props => props.margin ?? 0};
-  padding: ${props => props.padding ?? 0};
+export const Text = styled.p<CustomTextProps>`
+  color: ${({ color }) => color ?? "#dbdbdb"};
+  font-family: "Montserrat";
+  margin: ${(props) => props.margin ?? 0};
+  padding: ${(props) => props.padding ?? 0};
 
   /* Font Size */
   ${({ title, subheading, large, medium, small, tiny, extraTiny }) => {
@@ -43,23 +42,21 @@ export interface CustomTextProps {
       case extraTiny:
         return `font-size: 9px;`;
       default:
-        return 'font-size: 13px;';
+        return "font-size: 13px;";
     }
   }}
 
   /* Font Weight */
-  ${({ light, bold, heavy, black }) => {
+  ${({ light, bold, heavy }) => {
     switch (true) {
       case light:
-        return `font-family: 'MonserratLight';`;
+        return `font-weight: 400;`;
       case bold:
-        return `font-family: 'MontserratSemiBold';`;
+        return `font-weight: 600;`;
       case heavy:
-        return `font-family: 'MontserratBold';`;
-      case black:
-        return `font-family: 'MontserratBlack';`;
+        return `font-weight: 800;`;
       default:
-        return `font-family: 'Montserrat';`;
+        return `font-weight: 500;`;
     }
   }}
 
@@ -76,5 +73,3 @@ export interface CustomTextProps {
     }
   }}
 `;
-
-

@@ -12,7 +12,9 @@ export const HomeView: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer>
-        <Text large color="black">Home Page</Text>
+        <Text large bold color="black">
+          Home Page
+        </Text>
       </MainContainer>
     </Page>
   );
@@ -27,4 +29,3 @@ const MainContainer = styled.main`
   flex-direction: column;
   align-items: center;
 `;
-
