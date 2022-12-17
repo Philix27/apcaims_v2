@@ -1,20 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Text } from "../../components/utils";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HomeView: NextPage = () => {
   return (
     <Page>
       <Head>
-        <title>HomePage</title>
+        <title>Home Page</title>
         <meta name="description" content="The homepage of APCAims" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer>
-        <Text large bold color="black">
-          Home Page
-        </Text>
+        <Text>Auth Form here</Text>
       </MainContainer>
     </Page>
   );
@@ -23,9 +20,12 @@ export const HomeView: NextPage = () => {
 const Page = styled.div``;
 
 const MainContainer = styled.main`
-  height: 100vh;
-  width: 100vw;
+  font-family: "Inter";
+  font-weight: 400;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
+
+const Text = styled.p``;
