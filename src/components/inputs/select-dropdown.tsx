@@ -18,7 +18,13 @@ interface Props {
 }
 
 const customStyle: StylesConfig = {
-  control: (styles) => ({ ...styles, outline: "none" }),
+  control: (styles) => ({
+    ...styles,
+    outline: "none",
+    backgroundColor: "transparent",
+    borderRadius: "8px",
+    height: "48px",
+  }),
   placeholder: (styles) => ({
     ...styles,
     fontFamily: "Inter",
@@ -39,6 +45,7 @@ const customStyle: StylesConfig = {
     ...styles,
     fontSize: "14px",
     fontFamily: "Inter",
+    backgroundColor: "transparent",
   }),
 };
 
@@ -65,10 +72,9 @@ const Container = styled.div`
 const LabelText = styled.p`
   font-size: 14px;
   font-weight: 500;
-  font-family: "Inter";
 `;
 
 const ErrorText = styled.p`
-  font-size: 12px;
+  font-size: 13px;
   color: ${globalStyles.colors.fail};
 `;

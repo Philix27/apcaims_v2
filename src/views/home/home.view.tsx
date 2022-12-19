@@ -22,9 +22,8 @@ export const HomeView: NextPage = () => {
 const Page = styled.div``;
 
 const MainContainer = styled.main`
-  font-family: "Inter";
   font-weight: 400;
-  height: 92vh;
+  /* height: 92vh; */
   display: flex;
   flex-direction: column;
   align-items: center;

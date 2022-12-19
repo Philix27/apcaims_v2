@@ -4,6 +4,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFillEyeSlashFill } from "react-icons/bs";
 import { globalStyles } from "../constants";
+import { themes } from "../../themes";
 
 interface Props {
   label: string;
@@ -82,8 +83,8 @@ const Container = styled.div`
 
 const InputContainer = styled.div`
   width: 100%;
-  min-height: 38px;
-  border-radius: 4px;
+  min-height: 48px;
+  border-radius: 8px;
   margin: 3px 0px;
   padding: 0px 10px 0px 5px;
   display: flex;
@@ -96,7 +97,7 @@ const InputContainer = styled.div`
   }
 
   & svg {
-    transition: all 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
     &:hover {
       opacity: 0.5;
     }
@@ -107,11 +108,10 @@ const LabelText = styled.p`
   font-size: 14px;
   line-height: 16.94px;
   font-weight: 500;
-  font-family: "Inter";
 `;
 
 const ErrorText = styled.p`
-  font-size: 12px;
+  font-size: 13px;
   color: ${globalStyles.colors.fail};
 `;
 

@@ -20,7 +20,6 @@ export interface CustomTextProps {
 
 export const Text = styled.p<CustomTextProps>`
   color: ${({ color }) => color ?? "#dbdbdb"};
-  font-family: "Montserrat";
   margin: ${(props) => props.margin ?? 0};
   padding: ${(props) => props.padding ?? 0};
 

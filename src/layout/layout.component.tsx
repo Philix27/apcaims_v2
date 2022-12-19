@@ -17,4 +17,6 @@ export const Layout: React.FC<Props> = ({ children }) => {
   );
 };
 
-const LayoutContainer = styled.nav``;
+const LayoutContainer = styled.nav`
+  padding: 30px;
+`;

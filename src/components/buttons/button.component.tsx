@@ -1,5 +1,6 @@
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import styled from "styled-components";
+import { themes } from "../../themes";
 
 interface CustomButtonProps {
   plain?: boolean;
@@ -54,11 +55,10 @@ const StyledButton = styled.button<CustomButtonProps>`
   border-radius: 8px;
   height: ${({ height }) => height};
   width: ${({ width }) => (width ? width : "")};
-  font-family: "Inter";
   color: ${({ color }) => (color ? color : "#000")};
   background-color: ${({ plain, bgColor }) =>
     plain ? "transparent" : bgColor};
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 
   &:hover {
     opacity: 0.7;

@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { accountTypeOptions } from "./data";
 import { Button } from "../buttons";
 import { globalStyles } from "../constants";
+import { themes } from "../../themes";
 
 const initialValues = {
   accountType: "",
@@ -36,16 +37,16 @@ export const LoginForm = () => {
         validateOnBlur={true}
         validationSchema={loginValidationSchema}
         onSubmit={(values) => {
-          console.log(values);
+          alert(JSON.stringify(values));
         }}
       >
-        {({ errors, values, handleChange, handleSubmit }) => (
+        {({ errors, values, handleChange, handleSubmit, touched }) => (
           <>
             <SelectDropdown
               label="Account Type"
               options={accountTypeOptions}
               placeholderText="Select account type"
-              error={errors.accountType}
+              error={touched.accountType ? errors.accountType : undefined}
               handleChange={handleChange("accountType")}
             />
             <CustomInput
@@ -54,7 +55,7 @@ export const LoginForm = () => {
               label="Email"
               placeholderText="Enter your registered email"
               type="email"
-              error={errors.email}
+              error={touched.email ? errors.email : undefined}
             />
             <CustomInput
               value={values.password}
@@ -62,7 +63,7 @@ export const LoginForm = () => {
               label="Password"
               placeholderText="Enter your password"
               secured={true}
-              error={errors.password}
+              error={touched.password ? errors.password : undefined}
             />
             <PasswordResetBox>
               <PasswordResetHint>Forgot your password?</PasswordResetHint>
@@ -101,10 +102,22 @@ const FormContainer = styled.form`
 
 const HeaderText = styled.h3`
   font-size: 32px;
-  font-family: "Inter";
   font-weight: 500;
   line-height: 38.73px;
   margin-bottom: 48px;
+
+  @media ${themes.breakpoints.md} {
+    & {
+      font-size: 28px;
+    }
+  }
+
+  @media ${themes.breakpoints.sm} {
+    & {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
 `;
 
 const PasswordResetBox = styled.div`
@@ -114,11 +127,24 @@ const PasswordResetBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
+  transition: font-size 0.3s ease-in-out;
+
+  @media ${themes.breakpoints.sm} {
+    & {
+      width: 100%;
+      justify-content: center;
+      flex-direction: column;
+      margin-bottom: 30px;
+    }
+
+    & > p {
+      font-size: 80%;
+    }
+  }
 `;
 
 const PasswordResetHint = styled.p`
   opacity: 0.3;
-  font-family: "Inter";
   font-size: 14px;
   font-weight: 600;
   margin-right: 5px;
@@ -128,12 +154,22 @@ const ResetPassordLink = styled.p`
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  font-family: "Inter";
   text-decoration: underline;
 `;
 const CustomerServiceBox = styled(PasswordResetBox)`
   margin-top: 24px;
   justify-content: center;
+  transition: font-size 0.3s ease-in-out;
+
+  @media ${themes.breakpoints.sm} {
+    & {
+      flex-direction: column;
+    }
+    & > p {
+      font-size: 80%;
+    }
+  }
 `;
 const CustomerServiceHint = styled(PasswordResetHint)``;
 const CustomerServiceLink = styled(ResetPassordLink)``;
+

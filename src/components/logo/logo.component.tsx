@@ -30,10 +30,9 @@ const LogoText = styled.p`
   font-size: 24px;
   cursor: pointer;
   font-weight: 700;
-  font-family: "Inter";
   line-height: 28.8px;
   color: ${globalStyles.colors.black800};
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 
   &:hover {
     opacity: 0.7;
