@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
+import { LoginForm } from "../../components/forms";
 
 export const HomeView: NextPage = () => {
   return (
@@ -11,7 +12,8 @@ export const HomeView: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer>
-        <Text>Auth Form here</Text>
+        {/* <Text>Login</Text> */}
+        <LoginForm />
       </MainContainer>
     </Page>
   );
