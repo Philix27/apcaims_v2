@@ -6,6 +6,7 @@ import { Layout } from "../layout";
 import styled from "styled-components";
 import { Helmet } from "react-helmet";
 import { themes } from "../themes";
+import { MenuContextProvider } from "../context/drop-menu-context";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -37,9 +38,11 @@ export default function App({ Component, pageProps }: AppProps) {
       </Helmet>
       <GlobalStyle />
       <Normalize />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <MenuContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </MenuContextProvider>
     </>
   );
 }

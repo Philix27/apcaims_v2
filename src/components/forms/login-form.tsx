@@ -73,7 +73,7 @@ export const LoginForm = () => {
               title="Log in"
               bgColor={globalStyles.colors.gray1}
               titleColor="#F2F2F2"
-              width="90%"
+              width="100%"
               height="48px"
               onClickHandler={handleSubmit}
               type="submit"

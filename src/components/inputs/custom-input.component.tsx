@@ -7,13 +7,16 @@ import { globalStyles } from "../constants";
 import { themes } from "../../themes";
 
 interface Props {
-  label: string;
+  label?: string;
   secured?: boolean;
   value: string;
   multiline?: boolean;
   error?: string;
   placeholderText?: string;
+  padding?: number;
   type?: string;
+  height?: string;
+  width?: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -25,6 +28,9 @@ export const CustomInput: React.FC<Props> = (props) => {
     value,
     multiline,
     error,
+    height,
+    width,
+    padding,
     placeholderText,
     type,
   } = props;
@@ -37,8 +43,10 @@ export const CustomInput: React.FC<Props> = (props) => {
   return (
     <Container>
       <LabelText>{label}</LabelText>
-      <InputContainer>
+      <InputContainer height={height}>
         <Input
+        width={width}
+        padding={padding}
           placeholder={placeholderText}
           type={
             secured
@@ -77,13 +85,13 @@ export const CustomInput: React.FC<Props> = (props) => {
 export default CustomInput;
 
 const Container = styled.div`
-  width: 90%;
+  width: 100%;
   margin-top: 30px;
 `;
 
-const InputContainer = styled.div`
+const InputContainer = styled.div<{ height?: string }>`
   width: 100%;
-  min-height: 48px;
+  min-height: ${({ height }) => height || "48px"};
   border-radius: 8px;
   margin: 3px 0px;
   padding: 0px 10px 0px 5px;
@@ -115,10 +123,10 @@ const ErrorText = styled.p`
   color: ${globalStyles.colors.fail};
 `;
 
-const Input = styled.input`
+const Input = styled.input<{padding?: number; width?: string}>`
   height: 100%;
-  width: 90%;
-  padding: 5px;
+  width: ${({width}) => width || "90%"};
+  padding: ${({padding}) => padding || 5}px;
   font-size: 14px;
   outline: none;
   border: none;

@@ -66,7 +66,7 @@ export const SelectDropdown: React.FC<Props> = (props) => {
 };
 
 const Container = styled.div`
-  width: 90%;
+  width: 100%;
 `;
 
 const LabelText = styled.p`
