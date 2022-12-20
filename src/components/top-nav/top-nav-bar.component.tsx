@@ -20,7 +20,7 @@ export const TopNavigationBar = () => {
       {open && <Modal onClick={closeMenu} />}
       <NavContainer>
         {/* Logo here */}
-        <LogoComponent text="APCAIMS" />
+        <LogoComponent text="APCAIMS" onClick={() => router.push('/')}/>
 
         {/* Auth Buttons */}
         <AuthButtonContainer>
@@ -65,7 +65,6 @@ const MainContainer = styled.div``;
 const NavContainer = styled.nav`
   height: 3rem;
   width: 100%;
-  padding: 0px 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;

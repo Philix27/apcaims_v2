@@ -19,5 +19,5 @@ export const Layout: React.FC<Props> = ({ children }) => {
 };
 
 const LayoutContainer = styled.nav`
-  padding: 30px;
+  padding: 28px;
 `;

@@ -4,13 +4,14 @@ import { globalStyles } from "../constants";
 
 interface Props {
   text?: string;
+  onClick: () => void;
 }
 
-export const LogoComponent: React.FC<Props> = ({ text }) => {
+export const LogoComponent: React.FC<Props> = ({ text, onClick }) => {
   return (
     <LogoContainer>
       <CustomImage src={"/assets/images/apc-logo.png"} />
-      <LogoText>{text}</LogoText>
+      <LogoText onClick={onClick}>{text}</LogoText>
     </LogoContainer>
   );
 };

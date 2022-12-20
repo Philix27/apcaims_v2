@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import MenuContext from "../../context/drop-menu-context";
 import { globalStyles } from "../constants";
 import { themes } from "../../themes";
@@ -12,20 +13,26 @@ interface Props {
 export const DropdownLinks: React.FC<Props> = (props) => {
   const { menuOpen } = props;
   const { closeMenu } = useContext(MenuContext);
-
+  const router = useRouter();
   return (
     <Container menuOpen={menuOpen}>
       <CloseMenuButton onClick={closeMenu}>X</CloseMenuButton>
       <LinkList>
-        <LinkItem>
-          <Link href={"/create"}>
-            <Text>Create account</Text>
-          </Link>
+        <LinkItem
+          onClick={() => {
+            router.push("/create");
+            closeMenu();
+          }}
+        >
+          <Text>Create account</Text>
         </LinkItem>
-        <LinkItem>
-          <Link href={"/login"}>
-            <Text>Log in</Text>
-          </Link>
+        <LinkItem
+          onClick={() => {
+            router.push("/login");
+            closeMenu();
+          }}
+        >
+          <Text>Log in</Text>
         </LinkItem>
       </LinkList>
     </Container>
@@ -50,6 +57,10 @@ const Container = styled.div<{ menuOpen: boolean }>`
     display: block;
     transform: translateY(${({ menuOpen }) => (menuOpen ? "0vh" : "-100%")});
   }
+
+  @media ${themes.breakpoints.sm} {
+    height: 180px;
+  }
 `;
 
 const LinkList = styled.div`
@@ -60,6 +71,10 @@ const LinkList = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
+  @media ${themes.breakpoints.sm} {
+    gap: 20px;
+  }
 `;
 
 const LinkItem = styled.div`
@@ -82,6 +97,10 @@ const LinkItem = styled.div`
   }
   & a {
     text-decoration: none;
+  }
+
+  @media ${themes.breakpoints.sm} {
+    width: 280px;
   }
 `;
 const Text = styled.p`

@@ -16,7 +16,7 @@ export const Footer = () => {
 };
 
 const FooterContainer = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   height: 96px;
@@ -33,6 +33,14 @@ const FooterContainer = styled.div`
     align-items: flex-start;
     justify-content: space-evenly;
   }
+
+  @media ${themes.breakpoints.sm} {
+    height: 150px;
+    padding: 0px 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
 `;
 
 const LinkItem = styled.p`
@@ -40,4 +48,9 @@ const LinkItem = styled.p`
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  @media ${themes.breakpoints.sm} {
+    font-size: 12px;
+  }
 `;
