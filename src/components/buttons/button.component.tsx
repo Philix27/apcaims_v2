@@ -61,6 +61,6 @@ const StyledButton = styled.button<CustomButtonProps>`
   transition: opacity 0.3s ease-in-out;
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 `;

@@ -1,26 +1,12 @@
 // import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Normalize } from "styled-normalize";
-import { createGlobalStyle } from "styled-components";
 import { Layout } from "../layout";
-import styled from "styled-components";
 import { Helmet } from "react-helmet";
-import { themes } from "../themes";
 import { MenuContextProvider } from "../context/drop-menu-context";
+import { GlobalStyle } from "../styles/globalStyles";
+import { AccountCreationProvider } from "../context/account-creation-context";
 
-const GlobalStyle = createGlobalStyle`
-body {
-  height: 100%;
-  background-color: #fff;
-};
-  *{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    user-select: none;
-  }
-`;
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -39,9 +25,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <Normalize />
       <MenuContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <AccountCreationProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </AccountCreationProvider>
       </MenuContextProvider>
     </>
   );

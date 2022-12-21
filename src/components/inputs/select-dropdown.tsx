@@ -13,6 +13,7 @@ interface Props {
   options?: OptionsInterface[];
   label?: string;
   error?: string;
+  width?: string;
   placeholderText?: string;
   handleChange: (e: any) => void;
 }
@@ -50,9 +51,9 @@ const customStyle: StylesConfig = {
 };
 
 export const SelectDropdown: React.FC<Props> = (props) => {
-  const { label, options, placeholderText, error, handleChange } = props;
+  const { label, options, placeholderText, error, handleChange, width } = props;
   return (
-    <Container>
+    <Container width={width}>
       {label && <LabelText>{label}</LabelText>}
       <Select
         options={options}
@@ -65,8 +66,8 @@ export const SelectDropdown: React.FC<Props> = (props) => {
   );
 };
 
-const Container = styled.div`
-  width: 100%;
+const Container = styled.div<{ width?: string }>`
+  width: ${({ width }) => width || "100%"};
 `;
 
 const LabelText = styled.p`

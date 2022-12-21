@@ -20,7 +20,7 @@ export const DropdownLinks: React.FC<Props> = (props) => {
       <LinkList>
         <LinkItem
           onClick={() => {
-            router.push("/create");
+            router.push("/signup");
             closeMenu();
           }}
         >

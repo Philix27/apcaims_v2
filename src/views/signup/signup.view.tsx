@@ -1,19 +1,19 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
-import { LoginForm } from "../../components/forms";
+import { SignupForm } from "../../components/forms";
 
-export const LoginView: NextPage = () => {
+export const SignupView: NextPage = () => {
   return (
     <Page>
       <Head>
-        <title>login</title>
-        <meta name="description" content="The login page of APCAims accounts" />
+        <title>signup</title>
+        <meta name="description" content="The signup page for APCAims accounts" />
         <link rel="icon" href="/assets/images/apc-logo.png" />
       </Head>
       <MainContainer>
-        {/* <Text>Login</Text> */}
-        <LoginForm />
+        {/* signup form here */}
+        <SignupForm />
       </MainContainer>
     </Page>
   );
@@ -23,7 +23,6 @@ const Page = styled.div``;
 
 const MainContainer = styled.main`
   font-weight: 400;
-  /* height: 92vh; */
   display: flex;
   flex-direction: column;
   align-items: center;

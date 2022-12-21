@@ -20,7 +20,7 @@ export const TopNavigationBar = () => {
       {open && <Modal onClick={closeMenu} />}
       <NavContainer>
         {/* Logo here */}
-        <LogoComponent text="APCAIMS" onClick={() => router.push('/')}/>
+        <LogoComponent text="APCAIMS" onClick={() => router.push("/")} />
 
         {/* Auth Buttons */}
         <AuthButtonContainer>
@@ -35,6 +35,7 @@ export const TopNavigationBar = () => {
                 onClickHandler={() => router.push("/login")}
               />
               <Button
+                onClickHandler={() => router.push("/signup")}
                 title="Create account"
                 height="48px"
                 width="194px"
@@ -43,7 +44,15 @@ export const TopNavigationBar = () => {
               />
             </>
           ) : (
-            <Button title="create account" plain />
+            <Button
+              title={router.pathname === "/login" ? "create account" : "log in"}
+              plain
+              onClickHandler={() =>
+                router.push(
+                  `${router.pathname === "/login" ? "/signup" : "./login"}`
+                )
+              }
+            />
           )}
         </AuthButtonContainer>
         <MenuButtonContainer>
